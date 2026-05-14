@@ -394,10 +394,9 @@
                     <p class="text-gray-500 leading-relaxed mb-8">
                         We specialize in website develpoment, comprehensive social media management, and stunning website creation services. Our team combines creativity with technical expertise to transform your vision into reality.
                     </p>
-                    <p class="text-grey-400 font-medium">
-                        Founder: Mr.Ayush Koundal
-                   
-                    </p>                                                                                                                                                                                                                                           
+                     <p class="text-grey-400 font-medium mb-8">
+                        Founder: Mr. Ayush 
+                     </p>                                                                                                                                                                                                                                          
                     <div class="grid grid-cols-2 gap-6">
                         <div class="border-l-2 border-gray-700 pl-4">
                             <p class="text-3xl font-bold text-white">375+</p>
@@ -814,7 +813,33 @@
                 navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.8)';
             }
         });
-    </script>
+    
+function animateCounter(id, target, speed) {
+    let count = 0;
+    const element = document.getElementById(id);
+
+    const updateCount = () => {
+        if (count < target) {
+            count += Math.ceil(target / speed);
+
+            if (count > target) {
+                count = target;
+            }
+
+            element.innerText = count + "+";
+
+            requestAnimationFrame(updateCount);
+        }
+    };
+
+    updateCount();
+}
+
+window.addEventListener("load", () => {
+    animateCounter("projects-count", 375, 100);
+    animateCounter("clients-count", 350, 100);
+});
+</script>
 </body>
 </html>
 
